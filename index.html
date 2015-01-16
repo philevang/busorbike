@@ -19,14 +19,17 @@
         }
         .row{
             width: 80%;
-            padding: 30px 10%;
+            padding: 0 10%;
         }
+
+        /* background colors rows */
         .row1{
-            background: transparent;
-        }
-        .row2{
             background: #0E384F;
         }
+        .row2{
+            background: #4C7489;
+        }
+
         #header{
         }
         #country{
@@ -37,24 +40,29 @@
             height: 50px;
             border-bottom: #628FA8;
         }
-        .nav button{
+        .nav .button{
             width: 200px;
             background: #0E384F;
-            border-right: 1px solid #7E9AA9;
+            border-right: 1px solid #4C7489;
         }
-        .nav button:last-child{
+        .nav .button:last-child{
             border-right: none;
         }
-        .nav button.active{
+        .nav .button.active{
             background: #4C7489;
         }
-        .nav button:hover{
+        .nav .button:hover{
             background: #628FA8;
+            border-right: 1px solid #628FA8;
         }
-        button{
+        .nav .button:last-child:hover{
+            border-right: none;
+        }
+        .button{
+            line-height: 50px;
+            display: inline-block;
             font-size: 22px;
             color: #fff;
-            height: 100%;
             border: none;
             cursor: pointer;
         }
@@ -65,8 +73,9 @@
             float: right;
         }
         h1{
-            color: #777;
             font-size: 50px;
+            padding: 20px 0 30px;
+            margin: 0;
         }
         country{
             
@@ -81,16 +90,16 @@
 
 <body>
     <div id="main">
-        <div class="row1">
+        <div class="row row1">
             <div id="header">
                 <h1>BUS or BIKE???</h1>
             </div>
         </div>
-        <div class="row2">
+        <div class="row row1">
             <div id="country" class="nav">
-                <button id="ibk" class="active">Innsbruck</button>
-                <button id="sbg">Salzburg</button>
-                <button id="vn">Vienna</button>
+                <div id="ibk" class="button active">Innsbruck</div>
+                <div id="sbg" class="button">Salzburg</div>
+                <div id="vn" class="button">Vienna</div>
             </div>
         </div>
         <div class="row row2">
