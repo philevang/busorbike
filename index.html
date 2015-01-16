@@ -1,0 +1,134 @@
+<!DOCTYPE html>
+
+<html>
+<head>
+    <title>Bus or Bike</title>
+    <script type="text/javascript" src="busbike.js"></script>
+    <style type="text/css">
+        body{
+            margin: 0;
+            padding: 0;
+            background: #7E9AA9;
+            font-family: Arial;
+        }
+        #main{
+            color: #fff;
+            font-size: 18px;
+            width: 100%;
+            text-align: center;
+        }
+        .row{
+            width: 80%;
+            padding: 30px 10%;
+        }
+        .row1{
+            background: transparent;
+        }
+        .row2{
+            background: #0E384F;
+        }
+        #header{
+        }
+        #country{
+            
+        }
+        .nav{
+            font-size: 0;
+            height: 50px;
+            border-bottom: #628FA8;
+        }
+        .nav button{
+            width: 200px;
+            background: #0E384F;
+            border-right: 1px solid #7E9AA9;
+        }
+        .nav button:last-child{
+            border-right: none;
+        }
+        .nav button.active{
+            background: #4C7489;
+        }
+        .nav button:hover{
+            background: #628FA8;
+        }
+        button{
+            font-size: 22px;
+            color: #fff;
+            height: 100%;
+            border: none;
+            cursor: pointer;
+        }
+        .weather{
+            float: left;
+        }
+        .takethe{
+            float: right;
+        }
+        h1{
+            color: #777;
+            font-size: 50px;
+        }
+        country{
+            
+        }
+        .clearfloat{
+            clear: both;
+            float: none;
+            height: 0;
+        }
+    </style>
+</head>
+
+<body>
+    <div id="main">
+        <div class="row1">
+            <div id="header">
+                <h1>BUS or BIKE???</h1>
+            </div>
+        </div>
+        <div class="row2">
+            <div id="country" class="nav">
+                <button id="ibk" class="active">Innsbruck</button>
+                <button id="sbg">Salzburg</button>
+                <button id="vn">Vienna</button>
+            </div>
+        </div>
+        <div class="row row2">
+            <div class="weather">
+                <div id="wpic">
+                    <img src="http://www.vorwissenschaftlichearbeit.info/wp-content/uploads/2012/06/H_VWA_Wetter.png" />
+                </div>
+                <div class="wdesc">
+                    <p>
+                        sunrise: <span id="sunrise"></span>
+                    </p>
+                    <p>
+                        sunset: <span id="sunset"></span>
+                    </p>
+                    <p>
+                        temperature: <span id="temp"></span>
+                    </p>
+                    <p>
+                        wind: <span id="wind"></span>
+                    </p>
+                    <p>
+                        rainfall: <span id="rain"></span>
+                    </p>
+                </div>
+            </div>
+            <div class="takethe">
+                sdfdgfdggdfgfd
+            </div>
+            <div class="clearfloat"></div>
+        </div>
+        <div id="calendar">
+            Do. 15.01.2015 20.30 Uhr
+        </div>
+        <div id="events">
+            Red Bull Silent Disco
+        </div>
+    </div>
+
+
+</body>
+</html>
