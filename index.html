@@ -4,88 +4,7 @@
 <head>
     <title>Bus or Bike</title>
     <script type="text/javascript" src="busbike.js"></script>
-    <style type="text/css">
-        body{
-            margin: 0;
-            padding: 0;
-            background: #7E9AA9;
-            font-family: Arial;
-        }
-        #main{
-            color: #fff;
-            font-size: 18px;
-            width: 100%;
-            text-align: center;
-        }
-        .row{
-            width: 80%;
-            padding: 0 10%;
-        }
-
-        /* background colors rows */
-        .row1{
-            background: #0E384F;
-        }
-        .row2{
-            background: #4C7489;
-        }
-
-        #header{
-        }
-        #country{
-            
-        }
-        .nav{
-            font-size: 0;
-            height: 50px;
-            border-bottom: #628FA8;
-        }
-        .nav .button{
-            width: 200px;
-            background: #0E384F;
-            border-right: 1px solid #4C7489;
-        }
-        .nav .button:last-child{
-            border-right: none;
-        }
-        .nav .button.active{
-            background: #4C7489;
-        }
-        .nav .button:hover{
-            background: #628FA8;
-            border-right: 1px solid #628FA8;
-        }
-        .nav .button:last-child:hover{
-            border-right: none;
-        }
-        .button{
-            line-height: 50px;
-            display: inline-block;
-            font-size: 22px;
-            color: #fff;
-            border: none;
-            cursor: pointer;
-        }
-        .weather{
-            float: left;
-        }
-        .takethe{
-            float: right;
-        }
-        h1{
-            font-size: 50px;
-            padding: 20px 0 30px;
-            margin: 0;
-        }
-        country{
-            
-        }
-        .clearfloat{
-            clear: both;
-            float: none;
-            height: 0;
-        }
-    </style>
+    <link type="text/css" rel="stylesheet" href="style.css">
 </head>
 
 <body>
@@ -103,7 +22,7 @@
             </div>
         </div>
         <div class="row row2">
-            <div class="weather">
+            <div class="weather content">
                 <div id="wpic">
                     <img src="http://www.vorwissenschaftlichearbeit.info/wp-content/uploads/2012/06/H_VWA_Wetter.png" />
                 </div>
@@ -125,16 +44,28 @@
                     </p>
                 </div>
             </div>
-            <div class="takethe">
-                sdfdgfdggdfgfd
+            <div class="takethe content">
+                <p class="huge">You better take the <span id="vehicle">bike</span></p>
+                <div id="imgholder">
+                    <img id="imgvehicle" src="bike.gif">
+                </div>
             </div>
             <div class="clearfloat"></div>
         </div>
-        <div id="calendar">
-            Do. 15.01.2015 20.30 Uhr
+        <div class="row">
+            <div id="calendar" class="content">
+                Do. 15.01.2015 20.30 Uhr
+            </div>
         </div>
-        <div id="events">
-            Red Bull Silent Disco
+        <div class="row row2">
+            <div id="events" class="content">
+                Red Bull Silent Disco
+            </div>
+        </div>
+        <div class="row row1">
+            <div class="content">
+                FOOTER
+            </div>
         </div>
     </div>
 
