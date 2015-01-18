@@ -22,6 +22,8 @@ function auswahlCity(){
     // if (vn.onclick){
     //     url="http://api.openweathermap.org/data/2.5/weather?q=Wien,at&units=metric"
     // }
+    
+    //das ist eine Änderung
 
     // class active wird zuerst bei allen buttons gelöscht und dann bei angeklicktem angehängt
     for(var i in this.parentNode.children){
