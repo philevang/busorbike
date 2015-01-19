@@ -12,6 +12,7 @@ function init() {
     mins.addEventListener("click",whentogo,false);
 
     loadWeather("Innsbruck,at");
+    loadCineplexxNews();
 }
 
 function auswahlCity(){
@@ -35,11 +36,8 @@ function auswahlCity(){
     loadWeather(city);
 }
 
-
 function loadWeather(city){
     var url = "http://api.openweathermap.org/data/2.5/weather?q="+ city +"&units=metric";
-    
-    
     var request = new XMLHttpRequest();
     request.open("GET", url, false);
     try{
@@ -111,10 +109,46 @@ function whentogo() {
         return;
     }
 
-
 }
 
-loadCineplexxNews(){
-
+function loadCineplexxNews(){
+    var events=document.getElementById("events");
+    
+    if (window.XMLHttpRequest){
+        xmlhttp=new XMLHttpRequest();
+    }else{
+        xmlhttp=new ActiveXObject("Microsoft.XMLHTTP");
+    }
+    xmlhttp.open("GET","cineplexx.xml",false);
+    xmlhttp.send();
+    xmlDoc=xmlhttp.responseXML;
+    console.log(xmlDoc);
+    var x=xmlDoc.getElementsByTagName("item");
+    
+    
+    for (i=0;i<3;i++){
+        var news;
+        news="<p>";
+        news+=x[i].getElementsByTagName("title")[0].childNodes[0].nodeValue;
+        news+="</p><p>";
+        news+=x[i].getElementsByTagName("description")[0].childNodes[0].nodeValue;
+        //news+=x[i].getElementsByTagName("image").childNodes[0].nodeValue;
+        news+="</p>";
+        if(i==0){
+            //var link = "www.cineplexx.at" + x[i].getElementsByTagName("image").childNodes[0].nodeValue;
+            
+            news+="<img src='http://www.cineplexx.at/GenticsImageStore/96/54/force/media/at/news/artikel/Angelina_2.png'></img><p>";
+            news+="<a class='button' href='http://www.cineplexx.at/Content.Node/at/news/artikel/Angelina_Jolie_will_aufhoeren.de.php' target='_blank'>--> zum Artikel</a></input>"
+        }
+        if(i==1){
+            news+="<img src='http://www.cineplexx.at/GenticsImageStore/96/54/force/media/at/inc/movies_licences/Wild_304x171.jpg'></img><p>";
+            news+="<a class='button' href='http://www.cineplexx.at/Content.Node/at/news/artikel/_Annie___die_Dritte.de.php' target='_blank'>--> zum Artikel</a>"
+        }
+        if(i==2){
+            news+="<img src='http://www.cineplexx.at/GenticsImageStore/96/54/force/media/at/inc/movies_licences/Annie_304x171.jpg'></img><p>";
+            news+="<a class='button' href='http://www.cineplexx.at/Content.Node/at/news/artikel/Reese_in_freier_Wildbahn.de.php' target='_blank'>--> zum Artikel</a>"
+        }
+        events.innerHTML+=news;
+    }
 }
 
