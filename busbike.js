@@ -4,10 +4,12 @@ function init() {
     var ibk=document.getElementById("ibk");
     var sbg=document.getElementById("sbg");
     var vn=document.getElementById("vn");
+    var mins=document.getElementById("btnMinutes");
 
     ibk.addEventListener("click",auswahlCity,false);
     sbg.addEventListener("click",auswahlCity,false);
     vn.addEventListener("click",auswahlCity,false);
+    mins.addEventListener("click",whentogo,false);
 
     loadWeather("Innsbruck,at");
 }
@@ -52,7 +54,12 @@ function loadWeather(city){
     
     var request = new XMLHttpRequest();
     request.open("GET", url, false);
-    request.send(null);
+    try{
+        request.send(null);
+    }
+    catch(e){
+        alert('Kein Internet.')
+    }
     console.log(request.responseText);
     //umwandeln der Textinformation in JavaScript Objekte
     var wdata = JSON.parse(request.responseText);
@@ -73,4 +80,29 @@ function loadWeather(city){
     //console.log(document.getElementById("temp"));
     document.getElementById("wind").innerHTML=wind;
     
+}
+function loadCalendar() {
+    var url = " ";
+}
+
+function whentogo() {
+    var minsNeed = parseInt(document.getElementById("minutes").value);
+    var msg = '';
+
+    if (isNaN(minsNeed)) {
+        msg = "Type in the number of minutes you need.";
+    }
+    else if (minsNeed <= 0) {
+        msg = "You're not that fast, be honest!";
+    }
+    if (msg) {
+        document.getElementById("msgMinutes").innerHTML = msg;
+        return;
+    }
+
+
+}
+
+loadCineplexxNews(){
+
 }
