@@ -15,18 +15,6 @@ function init() {
 }
 
 function auswahlCity(){
-    // if (ibk.onclick){
-    //     url="http://api.openweathermap.org/data/2.5/weather?q=Innsbruck,at&units=metric"
-    // }
-    // if (sbg.onclick){
-    //     url="http://api.openweathermap.org/data/2.5/weather?q=Salzburg,at&units=metric"
-    // }
-    // if (vn.onclick){
-    //     url="http://api.openweathermap.org/data/2.5/weather?q=Wien,at&units=metric"
-    // }
-    
-    //das ist eine Änderung
-
     // class active wird zuerst bei allen buttons gelöscht und dann bei angeklicktem angehängt
     for(var i in this.parentNode.children){
         this.parentNode.children[i].className = 'button';
@@ -67,20 +55,43 @@ function loadWeather(city){
     //Zugriff auf einzelen Informationen
     //alert (wdata.name);
     
-        var city=wdata.name;
-        var temp=wdata.main.temp + "°C";
-        var wind=wdata.wind.speed;
         var sunrise=wdata.sys.sunrise;
         var sunset=wdata.sys.sunset;
-        var wdescr=wdata.weather[0].description;
+        var temp=wdata.main.temp;
+        temp=parseFloat(temp);
+        temp=Math.round(temp);
+        tempfull=temp  + "°C";
+        var shortdescr=wdata.weather[0].description;
+        var wind=wdata.wind.speed * 3.6;
+        wind=parseFloat(wind);
+        wind=Math.round(wind);
+        wind=wind  + " km/h"
+//        var rain=wdata.rain;
+        var pic="http://openweathermap.org/img/w/"+wdata.weather[0].icon+".png";
     document.getElementById("sunrise").innerHTML=sunrise;    
     document.getElementById("sunset").innerHTML=sunset;    
-    document.getElementById("temp").innerHTML=temp;
-    document.getElementById("wdescription").innerHTML=wdescr;    
-    //console.log(document.getElementById("temp"));
+    document.getElementById("temp").innerHTML=tempfull;
+    document.getElementById("sdescription").innerHTML=shortdescr;
     document.getElementById("wind").innerHTML=wind;
+//    document.getElementById("rain").innerHTML=rain;
+    document.getElementById("wpic").setAttribute("src", pic);
     
+    vehicleDes(temp);
 }
+
+function vehicleDes(temp){
+    var choice;
+    var img=document.getElementById("imgvehicle");
+    if(temp < -4){
+        choice="bus";
+        img=img.setAttribute("src", "bus.gif");
+    }else{
+        choice="bike";
+        img=img.setAttribute("src", "bike.gif");
+    }
+    document.getElementById("vehicle").innerHTML=choice;
+}
+
 function loadCalendar() {
     var url = " ";
 }
@@ -106,3 +117,4 @@ function whentogo() {
 loadCineplexxNews(){
 
 }
+
