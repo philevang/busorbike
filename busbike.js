@@ -50,7 +50,10 @@ function loadWeather(city){
     
         var sunrise=wdata.sys.sunrise;
         var sunset=wdata.sys.sunset;
-        var temp=wdata.main.temp + "°C";
+        var temp=wdata.main.temp;
+        temp=parseFloat(temp);
+        temp=Math.round(temp);
+        tempfull=temp  + "°C";
         var shortdescr=wdata.weather[0].description;
         var wind=wdata.wind.speed * 3.6;
         wind=parseFloat(wind);
@@ -60,10 +63,24 @@ function loadWeather(city){
         var pic="http://openweathermap.org/img/w/"+wdata.weather[0].icon+".png";
     document.getElementById("sunrise").innerHTML=sunrise;    
     document.getElementById("sunset").innerHTML=sunset;    
-    document.getElementById("temp").innerHTML=temp;
+    document.getElementById("temp").innerHTML=tempfull;
     document.getElementById("sdescription").innerHTML=shortdescr;
     document.getElementById("wind").innerHTML=wind;
 //    document.getElementById("rain").innerHTML=rain;
     document.getElementById("wpic").setAttribute("src", pic);
     
+    vehicleDes(temp);
+}
+
+function vehicleDes(temp){
+    var choice;
+    var img=document.getElementById("imgvehicle");
+    if(temp < -4){
+        choice="bus";
+        img=img.setAttribute("src", "bus.gif");
+    }else{
+        choice="bike";
+        img=img.setAttribute("src", "bike.gif");
+    }
+    document.getElementById("vehicle").innerHTML=choice;
 }
